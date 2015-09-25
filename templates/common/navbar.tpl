@@ -16,10 +16,26 @@
 		{if $isUserLoggedIn}
 			<li id="userHome"><a href="{url journal="index" page="user"}">{translate key="navigation.userHome"}</a></li>
 		{else}
-			<li id="login"><a href="{url page="login"}">{translate key="navigation.login"}</a></li>
-			{if !$hideRegisterLink}
-				<li id="register"><a href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>
+			{** BEGIN Suppress login for Jesuits *}
+			{if $currentJournal && $currentJournal->getJournalId() == 11}
+				<li id="login"><a href="{url page="login"}">{translate key="navigation.login"}</a></li>
+			{else}
+				<li id="login"><a href="{url page="login"}">{translate key="navigation.login"}</a></li>
 			{/if}
+			{** END *}
+                        {** BEGIN Change Register text for IHE 20140609 *}
+                        {if !$hideRegisterLink}
+                            {if $currentJournal}
+                                {if $currentJournal->getJournalId() == 16}
+                                        <li id="register"><a href="{url page="user" op="register"}">{translate key="navigation.registerihe"}</a></li>
+                                {else}
+                                        <li id="register"><a href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>
+                                {/if}
+                            {else}
+                                   <li id="register"><a href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>
+                            {/if}
+                        {/if}
+                        {**END *}
 		{/if}{* $isUserLoggedIn *}
 
 		{if $siteCategoriesEnabled}
@@ -31,7 +47,11 @@
 		{/if}
 
 		{if $currentJournal && $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
-			<li id="current"><a href="{url page="issue" op="current"}">{translate key="navigation.current"}</a></li>
+                {** BEGIN Suppress Current link for Integritas 20131101 *}
+			{if $currentJournal && $currentJournal->getJournalId() != 12}		
+				<li id="current"><a href="{url page="issue" op="current"}">{translate key="navigation.current"}</a></li>
+			{/if}
+		{** END *}
 			<li id="archives"><a href="{url page="issue" op="archive"}">{translate key="navigation.archives"}</a></li>
 		{/if}
 
