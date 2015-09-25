@@ -17,12 +17,12 @@
 			<li id="userHome"><a href="{url journal="index" page="user"}">{translate key="navigation.userHome"}</a></li>
 		{else}
 			{** BEGIN Suppress login for Jesuits *}
-			{if $currentJournal && $currentJournal->getJournalId() == 11}
-				<li id="login"><a href="{url page="login"}">{translate key="navigation.login"}</a></li>
-			{else}
-				<li id="login"><a href="{url page="login"}">{translate key="navigation.login"}</a></li>
-			{/if}
-			{** END *}
+                        {if $currentJournal && $currentJournal->getJournalId() == 11}
+                                <li id="login"><a href="{url page="notification"}/subscribeMailList">Subscribe</li>
+                        {else}
+                                <li id="login"><a href="{url page="login"}">{translate key="navigation.login"}</a></li>
+                        {/if}
+                        {**END *}
                         {** BEGIN Change Register text for IHE 20140609 *}
                         {if !$hideRegisterLink}
                             {if $currentJournal}
