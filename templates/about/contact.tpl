@@ -13,6 +13,9 @@
 {include file="common/header.tpl"}
 {/strip}
 <div id="contact">
+	
+{** BEGIN Jesuit contact info *}
+{if $currentJournal->getJournalId() != 11}	
 {if !empty($journalSettings.mailingAddress)}
 <div id="mailingAddress">
 <h3>{translate key="common.mailingAddress"}</h3>
@@ -51,6 +54,10 @@
 </p>
 </div>
 {/if}
+{else}
+{include file="about/jesuitjournalcontact.tpl"}
+{/if}
+{** END *}
 
 {if not (empty($journalSettings.supportName) && empty($journalSettings.supportPhone) && empty($journalSettings.supportEmail))}
 <div id="supportContact">
