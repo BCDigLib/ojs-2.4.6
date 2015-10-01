@@ -73,6 +73,9 @@
 		</table>
 		<br />
 	{/if}
+	{** BEGIN Display Cover Image with TOC for all issues *}
+	{if $issue->getFileName($locale)}<div id="issueCoverImage"><a href="{$currentUrl}"><img src="{$coverPagePath|escape}{$issue->getFileName($locale)|escape}"{if $issue->getCoverPageAltText($locale) != ''} alt="{$issue->getCoverPageAltText($locale)|escape}"{else} alt="{translate key="issue.coverPage.altText"}"{/if}{if $width} width="{$width|escape}"{/if}{if $height} height="{$height|escape}"{/if}/></a></div>{/if}
+	{** END *}
 	<h3>{translate key="issue.toc"}</h3>
 	{include file="issue/issue.tpl"}
 {else}
