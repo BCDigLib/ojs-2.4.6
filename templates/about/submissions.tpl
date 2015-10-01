@@ -19,7 +19,11 @@
 {/if}
 
 <ul>
+{** BEGIN Suppress for Elements*}
+{if $currentJournal->getJournalId() != 19}
 	{if !$currentJournal->getSetting('disableUserReg')}<li id="linkDisableUserReg"><a href="{url page="about" op="submissions" anchor="onlineSubmissions"}">{translate key="about.onlineSubmissions"}</a></li>{/if}
+{/if}
+{** END*}
 	{if $currentJournal->getLocalizedSetting('authorGuidelines') != ''}<li id="linkAuthorGuidelines"><a href="{url page="about" op="submissions" anchor="authorGuidelines"}">{translate key="about.authorGuidelines"}</a></li>{/if}
 	{if $currentJournal->getLocalizedSetting('copyrightNotice') != ''}<li id="linkCopyrightNotice"><a href="{url page="about" op="submissions" anchor="copyrightNotice"}">{translate key="about.copyrightNotice"}</a></li>{/if}
 	{if $currentJournal->getLocalizedSetting('privacyStatement') != ''}<li id="linkPrivacyStatement"><a href="{url page="about" op="submissions" anchor="privacyStatement"}">{translate key="about.privacyStatement"}</a></li>{/if}
@@ -27,6 +31,8 @@
 </ul>
 
 {if !$currentJournal->getSetting('disableUserReg')}
+{** BEGIN Suppress for Elements*}
+{if $currentJournal->getJournalId() != 19}
 	<div id="onlineSubmissions">
 		<h3>{translate key="about.onlineSubmissions"}</h3>
 		<p>
@@ -42,6 +48,8 @@
 {/if}
 
 <div class="separator">&nbsp;</div>
+{/if}
+{** END *}
 
 {if $currentJournal->getLocalizedSetting('authorGuidelines') != ''}
 <div id="authorGuidelines"><h3>{translate key="about.authorGuidelines"}</h3>
