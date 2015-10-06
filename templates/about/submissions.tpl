@@ -18,6 +18,10 @@
 	{assign var="authorFees" value=1}
 {/if}
 
+{** BEGIN Jesuit suppress *}
+{if $currentJournal->getJournalId() == 11}
+{include file="about/jesuitcontact.tpl"}
+{else}
 <ul>
 {** BEGIN Suppress for Elements*}
 {if $currentJournal->getJournalId() != 19}
@@ -70,6 +74,7 @@
 	<div class="separator">&nbsp;</div>
 	</div>
 {/if}{* $submissionChecklist *}
+{/if} {* END of Jesuit **}
 
 {if $currentJournal->getLocalizedSetting('copyrightNotice') != ''}
 <div id="copyrightNotice"><h3>{translate key="about.copyrightNotice"}</h3>
@@ -106,6 +111,8 @@
 		<p>{$currentJournal->getLocalizedSetting('waiverPolicy')|nl2br}</p>
 	{/if}
 </div>
+{/else}
+{include file="about/jesuitcontact.tpl"}
 {/if}
 {include file="common/footer.tpl"}
 
