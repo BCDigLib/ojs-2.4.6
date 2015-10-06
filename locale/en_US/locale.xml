@@ -880,7 +880,7 @@ current password.<br /><br />Enter your email address below to reset your passwo
 	<message key="about.journalSponsorship">Journal Sponsorship</message>
 	<message key="about.aboutThisPublishingSystem">About this Publishing System</message>
 	<message key="about.aboutThisPublishingSystem.altText">OJS Editorial and Publishing Process</message>
-	<message key="about.aboutOJSJournal"><![CDATA[This journal uses Open Journal Systems {$ojsVersion}, which is open source journal management and publishing software developed, supported, and freely distributed by the <a href="http://pkp.sfu.ca/">Public Knowledge Project</a> under the GNU General Public License.]]></message>
+	<message key="about.aboutOJSJournal"><![CDATA[This journal uses Open Journal Systems {$ojsVersion}, which is open source journal management and publishing software developed, supported, and freely distributed by the <a href="http://pkp.sfu.ca/">Public Knowledge Project</a> under the GNU General Public License. This journal may not employ all of the functions listed below.]]></message>
 	<message key="about.aboutOJSSite"><![CDATA[This site uses Open Journal Systems {$ojsVersion}, which is open source journal management and publishing software developed, supported, and freely distributed by the <a href="http://pkp.sfu.ca/">Public Knowledge Project</a> under the GNU General Public License.]]></message>
 
 	<!-- Announcement -->
