@@ -71,6 +71,11 @@
 			{if $hasAccess || ($subscriptionRequired && $showGalleyLinks)}
 				{foreach from=$article->getGalleys() item=galley name=galleyList}
 					<a href="{url page="article" op="view" path=$articlePath|to_array:$galley->getBestGalleyId($currentJournal)}" {if $galley->getRemoteURL()}target="_blank" {/if}class="file">{$galley->getGalleyLabel()|escape}</a>
+					{** BEGIN Code to display Pages for LEV 20120515 *}
+					{if $issue->getJournalId() == 8}
+					        {$article->getPages()|escape}
+	                                {/if}
+	                                {** END *}
 					{if $subscriptionRequired && $showGalleyLinks && $restrictOnlyPdf}
 						{if $article->getAccessStatus() == $smarty.const.ARTICLE_ACCESS_OPEN || !$galley->isPdfGalley()}
 							<img class="accessLogo" src="{$baseUrl}/lib/pkp/templates/images/icons/fulltext_open_medium.gif" alt="{translate key="article.accessLogoOpen.altText"}" />
@@ -88,9 +93,13 @@
 				{/if}
 			{/if}
 		</div>
-		<div class="tocPages">
-			{$article->getPages()|escape}
-		</div>
+		{** BEGIN Code to suppress Pages for LEV *}
+		{if $issue->getJournalId() != 8}
+			<div class="tocPages">
+				{$article->getPages()|escape}
+			</div>
+		{/if}
+		{** END *}
 	</td>
 </tr>
 </table>
