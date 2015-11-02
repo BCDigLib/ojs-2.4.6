@@ -53,7 +53,7 @@
 <ul>
 	{** BEGIN Jesuit suppress link *}
         {if $currentJournal->getJournalId() == 11}
-                <li>&#187; <a href="{url op="submissions"}">Submissions</a></li>
+                <li><a href="{url op="submissions"}">Submissions</a></li>
         {else}
 	{if !$currentJournal->getSetting('disableUserReg')}<li><a href="{url op="submissions" anchor="onlineSubmissions"}">{translate key="about.onlineSubmissions"}</a></li>{/if}
 	{if $currentJournal->getLocalizedSetting('authorGuidelines') != ''}<li><a href="{url op="submissions" anchor="authorGuidelines"}">{translate key="about.authorGuidelines"}</a></li>{/if}
