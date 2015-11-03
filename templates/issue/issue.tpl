@@ -50,7 +50,7 @@
 	<td class="tocArticleTitleAuthors{if $showCoverPage} showCoverImage{/if}">
 		<div class="tocTitle">
 			{** BEGIN Live link for Studies *}
-			{if $issue->getJournalId() == 11}
+			{if $issue->getJournalId() == 11 || $issue->getJournalId() == 9}
 				{foreach from=$article->getGalleys() item=galley name=galleyList}
 					<a href="{url page="article" op="view" path=$articlePath|to_array:$galley->getBestGalleyId($currentJournal)}" {if $galley->getRemoteURL()}target="_blank" {/if}class="file">{$article->getLocalizedTitle()|strip_unsafe_html}</a>
 				{/foreach}			
